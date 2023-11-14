@@ -1,0 +1,76 @@
+package utils
+
+import (
+	"errors"
+	"os"
+	"path"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
+
+type mockCacheDirOSUtil struct {
+	cacheDir      string
+	cacheDirError error
+	dirPath       string
+	dirPerm       os.FileMode
+	dirError      error
+}
+
+func (m *mockCacheDirOSUtil) UserCacheDir() (string, error) {
+	return m.cacheDir, m.cacheDirError
+}
+
+func (m *mockCacheDirOSUtil) MkdirAll(path string, perm os.FileMode) error {
+	m.dirPath = path
+	m.dirPerm = perm
+	return m.dirError
+}
+
+func (m *mockCacheDirOSUtil) Stat(_ string) (os.FileInfo, error) {
+	return nil, nil
+}
+
+func (m *mockCacheDirOSUtil) TempDir() string {
+	return ""
+}
+
+func newMockVulnmapCacheDirUtil(cacheDir string, cacheDirError error, dirError error) VulnmapOSUtil {
+	return &mockCacheDirOSUtil{
+		cacheDir:      cacheDir,
+		cacheDirError: cacheDirError,
+		dirError:      dirError,
+	}
+}
+
+func Test_VulnmapCacheDir_returnsCacheDir(t *testing.T) {
+	cacheDir := "path/to/cache/dir"
+	expectedDirName := path.Join("vulnmap", "vulnmap-cli")
+	expectedDir := path.Join(cacheDir, expectedDirName)
+
+	osutil := newMockVulnmapCacheDirUtil(cacheDir, nil, nil)
+
+	cacheDir, err := VulnmapCacheDirImpl(osutil)
+	assert.Nil(t, err)
+	assert.Equal(t, expectedDir, cacheDir)
+}
+
+func Test_VulnmapCacheDir_handlesCacheDirErr(t *testing.T) {
+	expectedDir := path.Join("vulnmap", "vulnmap-cli")
+	expectedErr := errors.New("error getting cache dir")
+
+	osutil := newMockVulnmapCacheDirUtil("", expectedErr, nil)
+
+	cacheDir, err := VulnmapCacheDirImpl(osutil)
+	assert.Equal(t, "error getting cache dir", err.Error())
+	assert.Equal(t, expectedDir, cacheDir)
+}
+
+func Test_FullPathInVulnmapCacheDir_returnsFullPath(t *testing.T) {
+	expectedFullPath := "path/to/cache/dir/file"
+
+	actualFullPath, err := FullPathInVulnmapCacheDir("path/to/cache/dir", "file")
+
+	assert.Nil(t, err)
+	assert.Equal(t, expectedFullPath, actualFullPath)
+}
