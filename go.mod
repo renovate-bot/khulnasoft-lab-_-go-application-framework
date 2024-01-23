@@ -5,7 +5,7 @@ go 1.21.4
 require (
 	github.com/fatih/color v1.16.0
 	github.com/golang/mock v1.6.0
-	github.com/google/uuid v1.4.0
+	github.com/google/uuid v1.6.0
 	github.com/hashicorp/go-uuid v1.0.3
 	github.com/khulnasoft-lab/go-httpauth v0.0.0-20231114154841-bf0f5fd18b56
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
