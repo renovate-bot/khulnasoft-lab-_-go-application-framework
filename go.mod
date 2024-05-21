@@ -7,7 +7,7 @@ require (
 	github.com/golang/mock v1.6.0
 	github.com/google/uuid v1.4.0
 	github.com/hashicorp/go-uuid v1.0.3
-	github.com/khulnasoft-lab/go-httpauth v0.0.0-20231114154841-bf0f5fd18b56
+	github.com/khulnasoft-lab/go-httpauth v0.0.0-20240421211137-7839e87ee126
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
 	github.com/rs/zerolog v1.31.0
 	github.com/spf13/cobra v1.8.0
@@ -47,10 +47,10 @@ require (
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.9.0 // indirect
-	golang.org/x/crypto v0.15.0 // indirect
+	golang.org/x/crypto v0.21.0 // indirect
 	golang.org/x/exp v0.0.0-20230905200255-921286631fa9 // indirect
-	golang.org/x/net v0.18.0 // indirect
-	golang.org/x/sys v0.14.0 // indirect
+	golang.org/x/net v0.23.0 // indirect
+	golang.org/x/sys v0.18.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect
