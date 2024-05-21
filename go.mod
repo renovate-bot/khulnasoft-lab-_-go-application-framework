@@ -8,7 +8,7 @@ require (
 	github.com/google/uuid v1.4.0
 	github.com/hashicorp/go-uuid v1.0.3
 	github.com/khulnasoft-lab/go-httpauth v0.0.0-20231114154841-bf0f5fd18b56
-	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
+	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/rs/zerolog v1.31.0
 	github.com/spf13/cobra v1.8.0
 	github.com/spf13/pflag v1.0.5
