@@ -10,7 +10,7 @@ require (
 	github.com/khulnasoft-lab/go-httpauth v0.0.0-20231114154841-bf0f5fd18b56
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
 	github.com/rs/zerolog v1.31.0
-	github.com/spf13/cobra v1.8.0
+	github.com/spf13/cobra v1.8.1
 	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.17.0
 	github.com/stretchr/testify v1.8.4
